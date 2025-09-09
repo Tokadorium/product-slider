@@ -43,7 +43,10 @@ class DisplaySlides {
 
             // handle prevoiously active slides and dots, if any
             if (currentSlideEl) {
-                if (currentSlideEl.dataset.slideId === targetSlide.dataset.slideId) return;
+                if (currentSlideEl.dataset.slideId === targetSlide.dataset.slideId) {
+                    sliderEl.dataset.animPlaying = "false";
+                    return;
+                }
 
                 // animate out current slide
                 await Animations.applyAnimations(currentSlideEl, "out");
